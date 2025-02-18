@@ -59,13 +59,13 @@ export default function Home() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2, // Show 2 images on tablets
+          slidesToShow: 3, // Show 2 images on tablets
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1, // Show 1 image on mobile
+          slidesToShow: 2, // Show 1 image on mobile
         },
       },
     ],
@@ -242,7 +242,7 @@ export default function Home() {
   const themes = [
     {
       title: 'Folklore',
-      image: '/hero-bg.jpg',
+      image: '/hero.jpg',
       description:
         'Explore traditional stories passed down through generations.',
     },
@@ -295,14 +295,14 @@ export default function Home() {
   return (
     <div className="bg-gray-50 text-gray-900">
       {/* Hero Section */}
-      <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-center py-20">
+      <section className="bg-[#1b4d3e] bg-cover bg-center py-20">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold text-white mb-4">
-            A Digital Storytelling Village that Bridges Generations and Cultures
+          <h1 className="text-4xl font-bold text-white mb-4">
+            A Storytelling Village Bridging Generations & Cultures
           </h1>
           <p className="text-xl text-gray-200 mb-8">
             Welcome to the{' '}
-            <span className="font-semibold text-orange-500">
+            <span className="font-semibold text-cyan-500">
               Nkane (The Olden Days)
             </span>
             —a modern space where the rich traditions of African storytelling
@@ -313,14 +313,11 @@ export default function Home() {
             when stories were shared around the fire.
           </p>
           <p className="text-xl text-gray-200 mb-8">
-            Whether you’re reconnecting with your roots, discovering new
-            cultures, or simply enjoying a great story, this platform creates a
-            space for everyone to share, listen, and engage in a global
-            storytelling movement. From Ananse’s clever tricks to the wisdom of
-            elders, every story carries a piece of history and heart. Join us as
-            we breathe new life into the ancient tradition of
-            storytelling—because every story is a bridge between generations,
-            cultures, and hearts.
+            Reconnect with your roots and explore the continent's vibrant
+            storytelling heritage. From Ananse’s clever tales to the wisdom of
+            elders, this platform brings Africa’s oral traditions to life.
+            Share, listen, and engage in stories that connect generations and
+            preserve cultures.
           </p>
           <form onSubmit={handleSubmit} className="flex justify-center">
             <input
@@ -333,7 +330,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-2 rounded-r-lg hover:bg-orange-600 transition-colors"
+              className="bg-cyan-800 text-white px-6 py-2 rounded-r-lg hover:bg-cyan-600 transition-colors"
             >
               Join the Waitlist
             </button>
@@ -450,7 +447,7 @@ export default function Home() {
                     alt={region.title}
                     className="w-full h-96 object-cover rounded-lg"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-100 text-white p-4 rounded-b-lg">
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{region.title}</h3>
                     <p className="text-sm">{region.description}</p>
                   </div>
@@ -476,7 +473,7 @@ export default function Home() {
                     alt={tribe.title}
                     className="w-full h-96 object-cover rounded-lg"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-100 text-white p-4 rounded-b-lg">
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{tribe.title}</h3>
                     <p className="text-sm">{tribe.description}</p>
                   </div>
@@ -502,7 +499,7 @@ export default function Home() {
                     alt={theme.title}
                     className="w-full h-96 object-cover rounded-lg"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-100 text-white p-4 rounded-b-lg">
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{theme.title}</h3>
                     <p className="text-sm">{theme.description}</p>
                   </div>
@@ -582,7 +579,7 @@ export default function Home() {
           <p className="text-gray-600 mb-8">
             Be part of a growing community dedicated to cultural preservation.
           </p>
-          <div className="text-4xl font-bold text-orange-500">500+</div>
+          <div className="text-4xl font-bold text-cyan-800">500+</div>
         </div>
       </section>
 
@@ -604,7 +601,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-2 rounded-r-lg hover:bg-orange-600 transition-colors"
+              className="bg-cyan-800 text-white px-6 py-2 rounded-r-lg hover:bg-cyan-600 transition-colors"
             >
               Join the waitlist
             </button>
@@ -616,13 +613,13 @@ export default function Home() {
       <footer className="bg-gray-800 text-white py-10">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center space-x-6 mb-4">
-            <a href="#" className="hover:text-orange-500">
+            <a href="#" className="hover:text-cyan-800">
               Facebook
             </a>
-            <a href="#" className="hover:text-orange-500">
+            <a href="#" className="hover:text-cyan-800">
               Twitter
             </a>
-            <a href="#" className="hover:text-orange-500">
+            <a href="#" className="hover:text-cyan-800">
               Instagram
             </a>
           </div>
@@ -630,7 +627,7 @@ export default function Home() {
             Contact us:{' '}
             <a
               href="mailto:info@africanstorytelling.com"
-              className="text-orange-500"
+              className="text-cyan-600"
             >
               info@nkane.com
             </a>
