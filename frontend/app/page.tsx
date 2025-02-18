@@ -442,21 +442,23 @@ export default function Home() {
           <Slider {...carouselSettings}>
             {regions.map((region, index) => (
               <div key={index} className="px-2">
-              <div className="relative h-96"> {/* Fixed height for the container */}
-                <Image
-                  src={region.image}
-                  alt={region.title}
-                  width={500}
-                  height={384}
-                  className="rounded-lg object-cover w-full h-full"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
-                  <h3 className="text-xl font-bold">{region.title}</h3>
-                  <p className="text-sm">{region.description}</p>
+                <div className="relative h-96">
+                  {' '}
+                  {/* Fixed height for the container */}
+                  <Image
+                    src={region.image}
+                    alt={region.title}
+                    width={500}
+                    height={384}
+                    className="rounded-lg object-cover w-full h-full"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
+                    <h3 className="text-xl font-bold">{region.title}</h3>
+                    <p className="text-sm">{region.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
           </Slider>
         </div>
@@ -471,12 +473,16 @@ export default function Home() {
           <Slider {...carouselSettings}>
             {tribes.map((tribe, index) => (
               <div key={index} className="px-2">
-                <div className="relative">
+                <div className="relative h-96">
+                  {' '}
+                  {/* Fixed height for the container */}
                   <Image
                     src={tribe.image}
                     alt={tribe.title}
-                    objectFit="cover"
-                    className="absolute top-0 left-0 w-full h-full"
+                    width={500}
+                    height={384}
+                    className="rounded-lg object-cover w-full h-full"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{tribe.title}</h3>
@@ -498,13 +504,16 @@ export default function Home() {
           <Slider {...carouselSettings}>
             {themes.map((theme, index) => (
               <div key={index} className="px-2">
-                <div className="relative">
+                <div className="relative h-96">
+                  {' '}
+                  {/* Fixed height for the container */}
                   <Image
                     src={theme.image}
                     alt={theme.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="absolute top-0 left-0 w-full h-full"
+                    width={500}
+                    height={384}
+                    className="rounded-lg object-cover w-full h-full"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{theme.title}</h3>
