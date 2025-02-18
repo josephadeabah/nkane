@@ -237,7 +237,7 @@ export default function Home() {
       description:
         'Explore the traditions and vibrant art of the Ndebele people from Zimbabwe and South Africa.',
     },
-  ];  
+  ];
 
   const themes = [
     {
@@ -298,11 +298,29 @@ export default function Home() {
       <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-center py-20">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold text-white mb-4">
-            Storytelling Village that Bridges Generations and Cultures
+            A Digital Storytelling Village that Bridges Generations and Cultures
           </h1>
           <p className="text-xl text-gray-200 mb-8">
-            A digital storytelling village where you can listen to and share
-            folktales, myths, and oral traditions in audio format.
+            Welcome to the{' '}
+            <span className="font-semibold text-orange-500">
+              Nkane (The Olden Days)
+            </span>
+            —a modern space where the rich traditions of African storytelling
+            meet the digital age. Here, you can immerse yourself in captivating
+            folktales, ancient myths, and time-honored oral traditions, passed
+            down through generations. These stories are brought to life in
+            high-quality audio, transporting you back to those magical nights
+            when stories were shared around the fire.
+          </p>
+          <p className="text-xl text-gray-200 mb-8">
+            Whether you’re reconnecting with your roots, discovering new
+            cultures, or simply enjoying a great story, this platform creates a
+            space for everyone to share, listen, and engage in a global
+            storytelling movement. From Ananse’s clever tricks to the wisdom of
+            elders, every story carries a piece of history and heart. Join us as
+            we breathe new life into the ancient tradition of
+            storytelling—because every story is a bridge between generations,
+            cultures, and hearts.
           </p>
           <form onSubmit={handleSubmit} className="flex justify-center">
             <input
@@ -317,7 +335,7 @@ export default function Home() {
               type="submit"
               className="bg-orange-500 text-white px-6 py-2 rounded-r-lg hover:bg-orange-600 transition-colors"
             >
-              Join the waitlist
+              Join the Waitlist
             </button>
           </form>
         </div>
@@ -542,7 +560,7 @@ export default function Home() {
               '🌍 Multilingual & Offline Access',
               '💰 Monetization for Storytellers',
               '🎭 Collaborative Storytelling & Challenges',
-              '🎭 Language Translation',
+              '🌐 Language Translation',
             ].map((feature, index) => (
               <div
                 key={index}
