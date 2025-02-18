@@ -1,100 +1,268 @@
-import Image from "next/image";
+'use client';
+import { useState } from 'react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [email, setEmail] = useState('');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    // Integrate with Mailchimp/ConvertKit here
+    console.log('Email submitted:', email);
+    alert('Thank you for joining the waitlist!');
+    setEmail('');
+  };
+
+  return (
+    <div className="bg-gray-50 text-gray-900">
+      {/* Hero Section */}
+      <section className="bg-[url('/images/hero-bg.jpg')] bg-cover bg-center py-20">
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+            Digital Storytelling Village that Bridges Generations and Cultures
+          </h1>
+          <p className="text-xl text-gray-500 mb-8">
+            A digital storytelling village where you can listen to and share
+            folktales, myths, and oral traditions in audio format.
+          </p>
+          <form onSubmit={handleSubmit} className="flex justify-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="px-4 py-2 rounded-l-lg focus:outline-none"
+              required
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <button
+              type="submit"
+              className="bg-orange-500 text-white px-6 py-2 rounded-r-lg hover:bg-orange-600 transition-colors"
+            >
+              Join the waitlist
+            </button>
+          </form>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: '🎧',
+                title: 'Listen',
+                description:
+                  'Discover engaging stories in different languages.',
+              },
+              {
+                icon: '🗣️',
+                title: 'Tell Stories',
+                description: 'Share your own stories with a global audience.',
+              },
+              {
+                icon: '🔴',
+                title: 'Live Storytelling',
+                description:
+                  'Participate in interactive storytelling sessions.',
+              },
+              {
+                icon: '💰',
+                title: 'Earn & Support',
+                description:
+                  'Tip storytellers or get rewarded for storytelling.',
+              },
+            ].map((step, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-white rounded-lg shadow-md"
+              >
+                <span className="text-4xl mb-4">{step.icon}</span>
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Browse Categories */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Browse Stories by Categories
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Tribes',
+                description:
+                  'Explore stories from various African tribes like Yoruba, Zulu, Maasai, and more.',
+              },
+              {
+                title: 'Regions',
+                description:
+                  'Discover tales from different regions such as West Africa, East Africa, and Southern Africa.',
+              },
+              {
+                title: 'Themes',
+                description:
+                  'Find stories based on themes like folklore, myths, legends, and moral lessons.',
+              },
+              {
+                title: 'Languages',
+                description:
+                  'Listen to stories in local languages like Swahili, Hausa, Xhosa, and more.',
+              },
+              {
+                title: 'Historical Events',
+                description:
+                  'Learn about historical events and figures through oral storytelling.',
+              },
+              {
+                title: 'Modern Adaptations',
+                description:
+                  'Enjoy contemporary retellings of traditional stories.',
+              },
+            ].map((category, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
+                <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
+                <p className="text-gray-600">{category.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why It Matters */}
+      <section className="bg-gray-100 py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why It Matters
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Cultural Preservation',
+                description: 'Keeping traditional stories alive.',
+              },
+              {
+                title: 'Multilingual Support',
+                description: 'Listen to stories in local languages.',
+              },
+              {
+                title: 'Community & Interaction',
+                description:
+                  'Engage with storytellers and shape stories together.',
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-white rounded-lg shadow-md"
+              >
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Overview */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Features Overview
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              '🎙 Audio-Based Storytelling',
+              '🔴 Live Story Sessions',
+              '🌍 Multilingual & Offline Access',
+              '💰 Monetization for Storytellers',
+              '🎭 Collaborative Storytelling & Challenges',
+              '🎭 Language Translation',
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-white rounded-lg shadow-md"
+              >
+                <p className="text-xl">{feature}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials/Interest Counter */}
+      <section className="bg-gray-100 py-20">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Join 500+ early adopters preserving oral traditions
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Be part of a growing community dedicated to cultural preservation.
+          </p>
+          <div className="text-4xl font-bold text-orange-500">500+</div>
+        </div>
+      </section>
+
+      {/* Email Signup Form */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-4">Get Early Access</h2>
+          <p className="text-gray-600 mb-8">
+            Sign up to be notified when we launch.
+          </p>
+          <form onSubmit={handleSubmit} className="flex justify-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="px-4 py-2 rounded-l-lg focus:outline-none"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-orange-500 text-white px-6 py-2 rounded-r-lg hover:bg-orange-600 transition-colors"
+            >
+              Join the waitlist
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-10">
+        <div className="container mx-auto px-6 text-center">
+          <div className="flex justify-center space-x-6 mb-4">
+            <a href="#" className="hover:text-orange-500">
+              Facebook
+            </a>
+            <a href="#" className="hover:text-orange-500">
+              Twitter
+            </a>
+            <a href="#" className="hover:text-orange-500">
+              Instagram
+            </a>
+          </div>
+          <p className="text-gray-400">
+            Contact us:{' '}
+            <a
+              href="mailto:info@africanstorytelling.com"
+              className="text-orange-500"
+            >
+              info@nkane.com
+            </a>
+          </p>
+          <p className="text-gray-400 mt-2">
+            © 2025 Nkane Africa Inc. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
   );
