@@ -446,10 +446,9 @@ export default function Home() {
                   <Image
                     src={region.image}
                     alt={region.title}
-                    layout="fill"
-                    className="w-full h-96 object-cover rounded-lg"
+                    objectFit="cover"
+                    className="absolute top-0 left-0 w-full h-full rounded-xl"
                   />
-
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{region.title}</h3>
                     <p className="text-sm">{region.description}</p>
@@ -474,8 +473,8 @@ export default function Home() {
                   <Image
                     src={tribe.image}
                     alt={tribe.title}
-                    layout="fill"
-                    className="w-full h-96 object-cover rounded-lg"
+                    objectFit="cover"
+                    className="absolute top-0 left-0 w-full h-full"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{tribe.title}</h3>
@@ -502,7 +501,8 @@ export default function Home() {
                     src={theme.image}
                     alt={theme.title}
                     layout="fill"
-                    className="w-full h-96 object-cover rounded-lg"
+                    objectFit="cover"
+                    className="absolute top-0 left-0 w-full h-full"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{theme.title}</h3>
