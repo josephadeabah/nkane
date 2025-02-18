@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image';
 
 // Custom Arrow Components
 const PrevArrow = (props: {
@@ -442,11 +443,13 @@ export default function Home() {
             {regions.map((region, index) => (
               <div key={index} className="px-2">
                 <div className="relative">
-                  <img
+                  <Image
                     src={region.image}
                     alt={region.title}
+                    layout="fill"
                     className="w-full h-96 object-cover rounded-lg"
                   />
+
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
                     <h3 className="text-xl font-bold">{region.title}</h3>
                     <p className="text-sm">{region.description}</p>
@@ -468,9 +471,10 @@ export default function Home() {
             {tribes.map((tribe, index) => (
               <div key={index} className="px-2">
                 <div className="relative">
-                  <img
+                  <Image
                     src={tribe.image}
                     alt={tribe.title}
+                    layout="fill"
                     className="w-full h-96 object-cover rounded-lg"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
@@ -494,9 +498,10 @@ export default function Home() {
             {themes.map((theme, index) => (
               <div key={index} className="px-2">
                 <div className="relative">
-                  <img
+                  <Image
                     src={theme.image}
                     alt={theme.title}
+                    layout="fill"
                     className="w-full h-96 object-cover rounded-lg"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 rounded-b-lg">
