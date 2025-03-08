@@ -1,4 +1,3 @@
-
 'use client';
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -13,8 +12,11 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
+    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

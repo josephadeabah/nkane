@@ -1,9 +1,7 @@
-
 'use client';
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
-
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -12,9 +10,35 @@ const Hero = () => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-    
+
+    // Add scroll event listener
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Cleanup the event listener
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-up');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Select all elements with animate-on-scroll class
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    // Cleanup the observer
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   // Enhanced parallax effect calculations
