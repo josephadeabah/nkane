@@ -2,12 +2,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
 import FeaturedCampaigns from '@/components/FeaturedCampaigns';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import Footer from '@/components/Footer';
 import RewardsSection from './components/RewardsSelection';
-import dynamic from 'next/dynamic';
-const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
 
 const Home = () => {
   useEffect(() => {
