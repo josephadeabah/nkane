@@ -4,9 +4,9 @@ import React, { useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeaturedCampaigns from '@/components/FeaturedCampaigns';
-import RewardsSection from '@/components/RewardsSection';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import Footer from '@/components/Footer';
+import RewardsSection from './components/RewardsSelection';
 
 const Home = () => {
   useEffect(() => {

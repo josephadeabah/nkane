@@ -6,7 +6,7 @@
     "jsx": "preserve",
     "incremental": true,
     "target": "ES2022",
-    "lib": ["ES2023"],
+    "lib": ["ES2023", "dom"],
     "module": "ESNext",
     "skipLibCheck": true,
     "noImplicitAny": false,
