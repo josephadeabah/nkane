@@ -38,7 +38,7 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      
+
       {/* Platform Benefits */}
       <section className="py-20 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,30 +50,34 @@ const Home = () => {
               Gamified Crowdfunding Experience
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground">
-              Earn rewards while supporting innovative campaigns and making real-world impact.
+              Earn rewards while supporting innovative campaigns and making
+              real-world impact.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Earn Rewards",
-                description: "Get exclusive rewards and tokens for backing successful campaigns",
-                icon: "🏆"
+                title: 'Earn Rewards',
+                description:
+                  'Get exclusive rewards and tokens for backing successful campaigns',
+                icon: '🏆',
               },
               {
-                title: "Level Up",
-                description: "Gain experience points and unlock new supporter tiers",
-                icon: "⭐"
+                title: 'Level Up',
+                description:
+                  'Gain experience points and unlock new supporter tiers',
+                icon: '⭐',
               },
               {
-                title: "Community Voting",
-                description: "Help decide which projects deserve spotlight features",
-                icon: "🔍"
-              }
+                title: 'Community Voting',
+                description:
+                  'Help decide which projects deserve spotlight features',
+                icon: '🔍',
+              },
             ].map((feature, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="p-6 bg-background rounded-xl border border-border hover:border-primary/30 transition-all animate-on-scroll"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -85,10 +89,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
+
       <FeaturedCampaigns />
       <RewardsSection />
-      
+
       {/* Stats section */}
       <section className="py-20 bg-background border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,25 +100,23 @@ const Home = () => {
             {[
               { number: '$2.7M+', label: 'Funds Raised' },
               { number: '10k+', label: 'Active Backers' },
-              { number: '125+', label: 'Successful Campaigns' }
+              { number: '125+', label: 'Successful Campaigns' },
             ].map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="flex flex-col items-center animate-on-scroll"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <span className="text-4xl md:text-5xl font-bold text-foreground mb-2">
                   {stat.number}
                 </span>
-                <span className="text-muted-foreground">
-                  {stat.label}
-                </span>
+                <span className="text-muted-foreground">{stat.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
-      
+
       <NewsletterSignup />
       <Footer />
     </div>

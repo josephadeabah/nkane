@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-// import { Providers } from './providers'; 
+import { TooltipProvider } from './components/ui/tooltip';
+import { Toaster } from '@/components/ui/toaster';
+import { Toaster as Sonner } from '@/components/ui/sonner';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -18,7 +20,8 @@ export const metadata: Metadata = {
   description:
     'A Digital Storytelling Village that Bridges Generations and Cultures',
   openGraph: {
-    title: 'Nkane | A Storytelling Village that Bridges Generations and Cultures',
+    title:
+      'Nkane | A Storytelling Village that Bridges Generations and Cultures',
     description:
       'A Digital Storytelling Village that Bridges Generations and Cultures',
     images: [
@@ -32,7 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nkane | A Storytelling Village that Bridges Generations and Cultures',
+    title:
+      'Nkane | A Storytelling Village that Bridges Generations and Cultures',
     description:
       'A Digital Storytelling Village that Bridges Generations and Cultures',
     images: ['/og-image.jpg'], // Add a Twitter image
@@ -49,8 +53,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-       {children}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <TooltipProvider>
+          {children}
+          <Toaster />
+          <Sonner />
+        </TooltipProvider>
       </body>
     </html>
   );
