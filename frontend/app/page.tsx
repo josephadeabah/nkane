@@ -36,8 +36,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* <Navbar />
-      <Hero /> */}
+      <Navbar />
+      <Hero />
       
       {/* Platform Benefits */}
       <section className="py-20 bg-muted/50">
