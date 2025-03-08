@@ -1,106 +1,94 @@
-'use client'; // Add this line to enable client-side interactivity
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
+import { Menu, X, Search } from 'lucide-react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-gray-800 text-white py-4 sticky top-0 z-50 shadow-cyan-800">
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold">
-          Nkane
-        </Link>
+    <header 
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+      )}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Link to="/" className="text-2xl font-semibold text-foreground hover:opacity-80 transition-opacity">
+              Minimal.
+            </Link>
+          </div>
+          
+          <nav className="hidden md:flex items-center space-x-8">
+            {['Home', 'Articles', 'Categories', 'About'].map((item) => (
+              <Link 
+                key={item} 
+                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-1 py-2 relative group"
+              >
+                {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            ))}
+            <button className="p-2 rounded-full hover:bg-muted transition-colors" aria-label="Search">
+              <Search size={18} className="text-muted-foreground" />
+            </button>
+          </nav>
 
-        {/* Hamburger Menu for Mobile */}
-        <div className="md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-white focus:outline-none"
+          <button 
+            className="md:hidden p-2" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            {isOpen ? (
-              <FaTimes className="w-6 h-6" />
+            {isMobileMenuOpen ? (
+              <X size={24} className="text-foreground" />
             ) : (
-              <FaBars className="w-6 h-6" />
+              <Menu size={24} className="text-foreground" />
             )}
           </button>
         </div>
-
-        {/* Navigation Links (Desktop) */}
-        <div className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-cyan-800 transition-colors">
-            Home
-          </Link>
-          <Link href="/about" className="hover:text-cyan-800 transition-colors">
-            About
-          </Link>
-          <Link
-            href="/stories"
-            className="hover:text-cyan-800 transition-colors"
-          >
-            Stories
-          </Link>
-          <Link
-            href="/contact"
-            className="hover:text-cyan-800 transition-colors"
-          >
-            Contact
-          </Link>
-        </div>
-
-        {/* Call-to-Action Button (Desktop) */}
-        <div className="hidden md:block">
-          <Link
-            href="/join-waitlist"
-            className="bg-cyan-800 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors"
-          >
-            Join Waitlist
-          </Link>
-        </div>
       </div>
 
-      {/* Mobile Menu (Collapsible) */}
-      {isOpen && (
-        <div className="md:hidden mt-4">
-          <div className="flex flex-col space-y-4 px-6">
-            <Link href="/" className="hover:text-cyan-500 transition-colors">
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-cyan-500 transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/stories"
-              className="hover:text-cyan-500 transition-colors"
-            >
-              Stories
-            </Link>
-            <Link
-              href="/contact"
-              className="hover:text-cyan-500 transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/join-waitlist"
-              className="bg-cyan-800 text-white px-4 py-2 rounded-lg hover:bg-cyan-500 transition-colors text-center"
-            >
-              Join Waitlist
-            </Link>
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border animate-fade-down">
+          <div className="px-4 py-3 space-y-3">
+            {['Home', 'Articles', 'Categories', 'About'].map((item, index) => (
+              <Link 
+                key={item} 
+                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                style={{ animationDelay: `${index * 50}ms` }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
+            <div className="relative py-3">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                className="w-full py-2 pl-3 pr-10 text-sm bg-muted rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:bg-background transition-all"
+              />
+              <Search size={16} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground pointer-events-none" />
+            </div>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 
