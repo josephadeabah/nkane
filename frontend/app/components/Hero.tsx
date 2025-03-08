@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 
+
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
 
