@@ -1,16 +1,17 @@
-'use client';
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+'use client'; // Mark this as a client component
+
+import { usePathname } from 'next/navigation'; // Import usePathname from Next.js
+import { useEffect } from 'react';
 
 const NotFound = () => {
-  const location = useLocation();
+  const pathname = usePathname(); // Use usePathname instead of useLocation
 
   useEffect(() => {
     console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
+      '404 Error: User attempted to access non-existent route:',
+      pathname
     );
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
