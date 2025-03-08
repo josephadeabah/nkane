@@ -16,6 +16,29 @@ export const metadata: Metadata = {
   title: 'Nkane | A Storytelling Village that Bridges Generations and Cultures',
   description:
     'A Digital Storytelling Village that Bridges Generations and Cultures',
+  openGraph: {
+    title: 'Nkane | A Storytelling Village that Bridges Generations and Cultures',
+    description:
+      'A Digital Storytelling Village that Bridges Generations and Cultures',
+    images: [
+      {
+        url: '/og-image.jpg', // Add an OpenGraph image
+        width: 1200,
+        height: 630,
+        alt: 'Nkane',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nkane | A Storytelling Village that Bridges Generations and Cultures',
+    description:
+      'A Digital Storytelling Village that Bridges Generations and Cultures',
+    images: ['/og-image.jpg'], // Add a Twitter image
+  },
+  icons: {
+    icon: '/favicon.ico', // Path to your favicon
+  },
 };
 
 export default function RootLayout({
