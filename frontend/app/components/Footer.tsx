@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <Link to="/" className="text-xl font-semibold text-foreground">
+            <Link href="/" className="text-xl font-semibold text-foreground">
               Minimal.
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
@@ -25,7 +25,7 @@ const Footer = () => {
                 {['Home', 'Articles', 'Categories', 'About'].map((item) => (
                   <li key={item}>
                     <Link 
-                      to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                      href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {item}
@@ -43,7 +43,7 @@ const Footer = () => {
                 {['Design', 'Psychology', 'Technology', 'Philosophy', 'Productivity'].map((category) => (
                   <li key={category}>
                     <Link 
-                      to={`/categories/${category.toLowerCase()}`}
+                      href={`/categories/${category.toLowerCase()}`}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {category}
@@ -61,7 +61,7 @@ const Footer = () => {
                 {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
                   <li key={item}>
                     <Link 
-                      to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {item}
