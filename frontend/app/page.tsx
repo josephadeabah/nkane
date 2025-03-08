@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeaturedCampaigns from '@/components/FeaturedCampaigns';
@@ -28,6 +28,7 @@ const Home = () => {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach((el) => observer.observe(el));
 
+    // Cleanup the observer
     return () => {
       animatedElements.forEach((el) => observer.unobserve(el));
     };
